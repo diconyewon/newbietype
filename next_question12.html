@@ -31,16 +31,20 @@
     }
 
     .progress-container {
-        width: 100%;
-        margin-bottom: 20px;
+        width: 95%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
     }
 
     .progress-bar {
-        width: 100%;
-        height: 20px;
+        width: 95%;
+        max-width: 500px;
+        height: 10px;
         background-color: #ddd;
         border-radius: 10px;
         overflow: hidden;
+        align-items: center;
     }
 
     .progress-fill {
@@ -51,18 +55,19 @@
         transition: width 0.3s ease; /* 부드러운 애니메이션 */
     }
 
+  
 
     .question-image {
-        max-width: 150%; /* 이미지를 화면 크기에 맞게 조정 */
+        max-width: 100%; /* 이미지를 화면 크기에 맞게 조정 */
         height: auto; /* 비율 유지 */
         margin-top: 30px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 70px; /* 질문과 버튼 사이 간격 */
+        margin-bottom: 45px; /* 질문과 버튼 사이 간격 */
     }
 
     .answer-button {
-        padding: 25px 80px;
-        font-size: 1.7rem;
+        padding: 20px 60px;
+        font-size: 1.0rem;
         color: white;
         background-color: #ff69b4;
         border: none;
@@ -70,7 +75,7 @@
         cursor: pointer;
         transition: transform 0.2s ease, background-color 0.3s ease;
         box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
-        margin: 15px 0;
+        margin: 10px 0;
         width: 120%;
         max-width: 1000px;
     }
