@@ -7,8 +7,8 @@
   <style>
     body {
         background-color: #f0e9e9; /* 배경 색상 */
-        background-image: url('/newbietype/images/newbie.jpg'); /* 이미지 경로 설정 */
-        background-size: 100%; /* 배경 이미지를 화면의 50% 크기로 설정 */
+        background-image: url('/newbietype/images/newbie.jpg'); /* 절대 경로로 수정 */
+        background-size: 100%; /* 배경 이미지를 화면 크기에 맞게 설정 */
         background-position: center; /* 이미지를 중앙 정렬 */
         background-repeat: no-repeat; /* 이미지 반복 방지 */
         text-align: center;
@@ -69,7 +69,7 @@
 
   <div id="result-container">
     <h1>디콘 유형 테스트 결과</h1>
-    <img id="/newbietype/result-image" class="result-image" src="" alt="결과 이미지">
+    <img id="result-image" class="result-image" src="" alt="결과 이미지">
     <button class="start-button" onclick="resetTest()">다시하기</button>
   </div>
 
@@ -92,20 +92,20 @@
     let resultImage = "";
 
     if (resultType === "Q1") {
-      resultImage = "/newbietype/images/result1.jpg";
+      resultImage = "/newbietype/images/result1.jpg"; /* 절대 경로로 수정 */
     } else if (resultType === "Q2") {
-      resultImage = "/newbietype/images/result2.jpg";
+      resultImage = "/newbietype/images/result2.jpg"; /* 절대 경로로 수정 */
     } else if (resultType === "Q3") {
-      resultImage = "/newbietype/images/result4.jpg";
+      resultImage = "/newbietype/images/result4.jpg"; /* 절대 경로로 수정 */
     } else if (resultType === "Q4") {
-      resultImage = "/newbietype/images/result3.jpg";
+      resultImage = "/newbietype/images/result3.jpg"; /* 절대 경로로 수정 */
     }
 
     document.getElementById("result-image").src = resultImage;
 
     function resetTest() {
       localStorage.clear();
-      window.location.href = "index.html";
+      window.location.href = "/newbietype/index.html"; /* 절대 경로로 수정 */
     }
   </script>
 </body>
