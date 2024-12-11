@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결과 페이지</title>
+  <style>
+    body {
+        background-color: #f0e9e9; /* 배경 색상 */
+        background-image: url('/newbietype/images/newbie.jpg'); /* 이미지 경로 설정 */
+        background-size: 100%; /* 배경 이미지를 화면의 50% 크기로 설정 */
+        background-position: center; /* 이미지를 중앙 정렬 */
+        background-repeat: no-repeat; /* 이미지 반복 방지 */
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+
+    #result-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* 화면 전체 높이를 사용 */
+    }
+
+    h1 {
+      margin-bottom: 30px; /* 제목과 이미지 사이의 간격 */
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .result-image {
+      max-width: 35%; /* 이미지 크기를 화면에 맞게 제한 */
+      height: auto;   /* 비율 유지 */
+      margin-bottom: 50px; /* 이미지와 버튼 사이 간격 */
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .start-button {
+      padding: 25px 90px;
+      font-size: 1.7rem;
+      color: white;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
+    }
+
+    .start-button:hover {
+      background-color: #ff85c0;
+      transform: scale(1.1);
+    }
+
+    .start-button:active {
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="result-container">
+    <h1>디콘 유형 테스트 결과</h1>
+    <img id="/newbietype/result-image" class="result-image" src="" alt="결과 이미지">
+    <button class="start-button" onclick="resetTest()">다시하기</button>
+  </div>
+
+  <script>
+    const Q1_count = parseInt(localStorage.getItem('Q1')) || 0;
+    const Q2_count = parseInt(localStorage.getItem('Q2')) || 0;
+    const Q3_count = parseInt(localStorage.getItem('Q3')) || 0;
+    const Q4_count = parseInt(localStorage.getItem('Q4')) || 0;
+
+    console.log(`Counts - Q1: ${Q1_count}, Q2: ${Q2_count}, Q3: ${Q3_count}, Q4: ${Q4_count}`);
+
+    const counts = { Q1: Q1_count, Q2: Q2_count, Q3: Q3_count, Q4: Q4_count };
+    const maxCount = Math.max(...Object.values(counts));
+    const topAnswers = Object.keys(counts).filter(key => counts[key] === maxCount);
+
+    const resultType = topAnswers[Math.floor(Math.random() * topAnswers.length)];
+
+    console.log(`Result type: ${resultType}`);
+
+    let resultImage = "";
+
+    if (resultType === "Q1") {
+      resultImage = "images/result1.jpg";
+    } else if (resultType === "Q2") {
+      resultImage = "images/result2.jpg";
+    } else if (resultType === "Q3") {
+      resultImage = "images/result4.jpg";
+    } else if (resultType === "Q4") {
+      resultImage = "images/result3.jpg";
+    }
+
+    document.getElementById("result-image").src = resultImage;
+
+    function resetTest() {
+      localStorage.clear();
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
